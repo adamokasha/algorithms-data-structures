@@ -39,9 +39,9 @@ class SinglyLinkedList {
 
 ### Push Method
 
-Adds a new node to the end of the list.
+Adds a new node to the end of the list. Returns the list.
 
-#### Approach
+#### Overview
 
 Set a tail property to the new node.
 
@@ -70,9 +70,9 @@ push(val) {
 
 ### Pop Method
 
-Removes the node at the end of the list.
+Removes the node at the end of the list. Returns the removed node.
 
-#### Approach:
+#### Overview:
 
 To do this we must sever the link to the current tail and set the node previous to it as the new tail.
 
@@ -114,3 +114,33 @@ pop() {
 ```
 
 ### Shift Method
+
+Removes a node from the beginning of the list. Returns the removed node.
+
+#### Overview
+
+Set the current head's next node property as the head.
+
+#### Pseudocode
+
+- If there is no head the list has no nodes, return undefined.
+- Create a currentHead variable and set it to this.head. This variable will save the current head so we may return it.
+- Set `this.head = currentHead.next`
+- Decrement length
+- Check to see if length is now zero. If so, set `this.tail = null`
+- return currentHead (the removed node).
+
+#### Code
+
+```javascript
+shift() {
+    if (!this.head) return undefined;
+    let currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return currentHead;
+  }
+```
