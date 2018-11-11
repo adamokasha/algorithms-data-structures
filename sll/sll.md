@@ -23,7 +23,7 @@ class Node {
 
 ### Creating the Singly Linked List Class
 
-As mentioned a singly linked list should have a head tail and length property.
+As mentioned a singly linked list should have a head, tail and length property.
 
 ```javascript
 class SinglyLinkedList {
@@ -34,6 +34,8 @@ class SinglyLinkedList {
   }
 }
 ```
+
+---
 
 ## Adding Methods
 
@@ -49,9 +51,10 @@ Set a tail property to the new node.
 
 - First, create a new node.
 - If the linked list is empty, then simply set the head and tail properties to be the new node. Increment length.
-- Otherwise the set the new node to be the current tail's next property, then set the tail of the list as the new node.
+- Otherwise set the new node to be the current tail's next property, then set the tail of the list as the new node.
+- Increment length and return the list.
 
-Increment length and return the list.
+#### Code
 
 ```javascript
 push(val) {
@@ -74,7 +77,7 @@ Removes the node at the end of the list. Returns the removed node.
 
 #### Overview:
 
-To do this we must sever the link to the current tail and set the node previous to it as the new tail.
+Sever the link to the current tail and set the node previous to it as the new tail.
 
 #### Pseudocode
 
@@ -142,5 +145,40 @@ shift() {
       this.tail = null;
     }
     return currentHead;
+  }
+```
+
+### Unshift Method
+
+Adds a new node to the beginning of the list. Returns the list.
+
+#### Overview
+
+Create a new node and sets its next property to be the current head. Set the list's head as this new node.
+
+#### Pseudocode
+
+- Create a new node and set to a variable called newHead.
+- If there is no head in the list, then it is empty. Set `this.head` and `this.tail` to be newHead.
+- Else
+  - the newHead's next property should point to current head: `newHead.next = this.head`.
+  - The list's head property should now be set to newNode.
+- Increment the length
+- Return the list
+
+#### Code
+
+```javascript
+  unshift(val) {
+    const newHead = new Node(val);
+    if (!this.head) {
+      this.head = newHead;
+      this.tail = newHead;
+    } else {
+      newHead.next = this.head;
+      this.head = newHead;
+    }
+    this.length++;
+    return this;
   }
 ```
