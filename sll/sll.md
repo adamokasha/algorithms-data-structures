@@ -182,3 +182,36 @@ Create a new node and sets its next property to be the current head. Set the lis
     return this;
   }
 ```
+
+### Get Method
+
+Returns a node at a given index.
+
+#### Overview
+
+Traverse to the node at the index by exploiting the fact that each node has a link to the next node. Using a loop and an incrementing counter variable, we start by initiating a `current` node variable to the list's head, and traverse forward by setting `current` to its `current.next` property until we arrive at the specified index.
+
+#### Pseudocode
+
+- If index is less than zero or greater than length of the list, then the index is in an invalid range. Return undefined.
+- Create and initiate a counter variable at 0, `counter = 0`.
+- Create a current variable and initiate at the list's head.
+- Loop while counter hasn't reached index
+  - Set current to current's _next property_ to traverse forwards.
+  - Increment the counter.
+- Return current
+
+#### Code
+
+```javascript
+  get(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    let counter = 0;
+    let current = this.head;
+    while (counter < index) {
+      current = current.next;
+      counter++
+    }
+    return current;
+  }
+```
