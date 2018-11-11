@@ -241,3 +241,46 @@ Use the get method to return node at given index. Update the node's value.
     return true;
   }
 ```
+
+### Insert Method
+
+Inserts a new node at a given index. Returns boolean.
+
+#### Overview
+
+First capture the next property of the node before the index we're inserting to in a temporary variable. Insert the new node by setting that same previous node's next property to the new node. Point the new node's next property to the temporary variable which holds the rest of the list.
+
+![Insert Method](sll_2.jpg)
+
+#### Pseudocode
+
+- If index is less than zero or greater than length return false.
+- If index is equal to list's length, use the list's push method. Coerce the returned value to a boolean using !!.
+- If index is equal to zero use the lists unshift method. Coerce the returned value to a boolean using !!.
+- Create a new node and set to variable `newNode`
+- Set the node before the index we're inserting to a variable `prevNode`
+- Capture `prevNode.next` in a `temp` variable to save a link to the nodes after the insertion point.
+- Set `prevNode.next = newNode`. Link to the rest of the list in `temp` is severed.
+- Set `newNode.next = temp` to re-establish link to part of the list that was severed.
+- Increment length
+- Return true.
+
+#### Code
+
+```javascript
+  insert(val, index) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+
+    let newNode = new Node(val);
+    let prevNode = this.get(index - 1);
+    let temp = prevNode.next;
+    prevNode.next = newNode;
+    newNode.next = temp;
+
+    this.length++
+    return true
+  }
+
+```
