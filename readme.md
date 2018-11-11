@@ -1,4 +1,4 @@
-# Data Structures and Algorithm In JavaScript: A Step by Step Guide
+# Data Structures and Algorithms In JavaScript
 
 ## Algorithms:
 

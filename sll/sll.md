@@ -215,3 +215,29 @@ Traverse to the node at the index by exploiting the fact that each node has a li
     return current;
   }
 ```
+
+### Set Method
+
+Sets a new value at a specified node. Returns true if updated, false if node doesn't exist.
+
+#### Overview
+
+Use the get method to return node at given index. Update the node's value.
+
+#### Pseudocode
+
+- Create a new node variable and set it to the return value of calling `this.get(index)`
+- If the returned value is falsy, return false
+- Else update the node's value with the one passed in
+- Return true.
+
+#### Code
+
+```javascript
+  set(val, index) {
+    let node = this.get(index);
+    if (!node) return false;
+    node.value = val;
+    return true;
+  }
+```
