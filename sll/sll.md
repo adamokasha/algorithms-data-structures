@@ -284,3 +284,38 @@ First capture the next property of the node before the index we're inserting to 
   }
 
 ```
+
+### Remove Method
+
+Removes node and specified index. Returns removed node;
+
+#### Overview
+
+Traverse to the node preceding the node to be removed. Capture the node to be removed's next property (in a variable). Attach the previous node's next property to the removed node's next property. This will sever the removed node from the list's link chain.
+
+#### Pseudocode
+
+- If `index` is less than 0 or less than length - 1, then return undefined.
+- If `index === 0`, use the already defined shift method and return value from function invokation.
+- If index === this.length -1, use the already defined pop method and return value from function invokation.
+- Create a `prevNode` variable and set to node preceding node we want to remove.
+- Create a `removedNode` variable and set to `prevNode.next`.
+- set `prevNode.next` equal to `removedNode.next` to point at the node after the removed node, thereby severing it from the link chain.
+- Decrement length
+- Return removed node.
+
+#### Code
+
+```javascript
+  remove(index) {
+    if (index < 0 || index > this.length - 1) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    const prevNode = this.get(index - 1);
+    const removedNode = prevNode.next;
+    prevNode.next = removedNode.next;
+    this.length--;
+    return removedNode;
+  }
+```
