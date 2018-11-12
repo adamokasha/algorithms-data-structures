@@ -2,7 +2,10 @@
 
 ## Algorithms:
 
+- Sorting
+  - [Bubble Sort](/algorithms/bubble-sort.md)
+
 ## Data Structures:
 
 - Linked Lists
-  - [Singly Linked List](/sll/sll.md)
+  - [Singly Linked List](/data-structures/sll/sll.md)
