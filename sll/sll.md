@@ -250,8 +250,6 @@ Inserts a new node at a given index. Returns boolean.
 
 First capture the next property of the node before the index we're inserting to in a temporary variable. Insert the new node by setting that same previous node's next property to the new node. Point the new node's next property to the temporary variable which holds the rest of the list.
 
-![Insert Method](sll_2.jpg)
-
 #### Pseudocode
 
 - If index is less than zero or greater than length return false.
@@ -282,8 +280,11 @@ First capture the next property of the node before the index we're inserting to 
     this.length++
     return true
   }
-
 ```
+
+#### Diagram
+
+![Insert Method](sll_2.jpg)
 
 ### Remove Method
 
@@ -319,3 +320,49 @@ Traverse to the node preceding the node to be removed. Capture the node to be re
     return removedNode;
   }
 ```
+
+### Reverse Method
+
+Reverses the order of the nodes in the list. Returns the list.
+
+#### Overview
+
+Start by swapping the head and tail nodes. Set a current node as the head, previous node as null. Loop over each node. At every loop: first capture the next node in a variable, point currentNode's next property to the previous node. Then set the previous node to the current node and current node to the next node for the next loop. See diagram below for an example.
+
+#### Pseudocode
+
+- Create a current variable and set as `this.head`
+- Swap `this.head` and `this.tail` using `current` as the temporary swapping variable.
+- Initiate a `next` variable
+- Initiate a `prev` variable and set to null
+- Start a for loop
+  - Set `next = current.next` to save the next node
+  - Set `current.next = prev`
+  - Set `current = next`
+- Return list.
+
+#### Code
+
+```javascript
+  reverse() {
+    let current = this.head;
+    this.head = this.tail;
+    this.tail = current;
+
+    let next;
+    let prev = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = current.next;
+      current.next = prev;
+
+      prev = current;
+      current = next;
+    }
+    return this;
+  }
+```
+
+#### Diagram
+
+![Reverse Method](sll_3.jpg)
