@@ -1,9 +1,9 @@
-# Data Structures and Algorithms In JavaScript
+# Algorithms and Data Structures In JavaScript
 
 ## Algorithms:
 
 - Sorting
-  - [Bubble Sort](/algorithms/bubble-sort.md)
+  - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
 
 ## Data Structures:
 
