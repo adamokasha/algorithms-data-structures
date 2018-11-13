@@ -75,3 +75,21 @@ This process of recursively merging the split arrays continues until we return t
 - Call mergeSort (recursively) on the first half.
 - Call mergeSort (recursively) on the second half.
 - return the result of merge of the split halves: `merge(halfOne, halfTwo)`.
+
+#### Code
+
+```javascript
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  let middle = Math.floor(arr.length / 2);
+  let halfOne = mergeSort(arr.slice(0, middle));
+  let halfTwo = mergeSort(arr.slice(middle));
+
+  return merge(halfOne, halfTwo);
+}
+```
+
+#### Diagram
+
+![Merge Sort](mergesort_1.jpg)
