@@ -3,8 +3,9 @@
 ## Algorithms:
 
 - Sorting
-  - [Selection Sort](/algorithms/selection-sort/selection-sort.md)
-  * [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
+  - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
+  * [Selection Sort](/algorithms/selection-sort/selection-sort.md)
+  * [Insertion Sort](/algorithms/insertion-sort/insertion-sort.md)
 
 ## Data Structures:
 

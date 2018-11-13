@@ -2,7 +2,7 @@
 
 ## Description
 
-As the name implies, selection sort works by selecting an item in the list and comparing it to another item and making a swap if the items are ordered incorrectly. Selection sort works by sorting the smallest items into position first.
+As the name implies, selection sort works by selecting an item in the list and comparing it to another item and making a swap if the items are ordered incorrectly. Unlike bubble sort, selection sort works by sorting the smallest items into position first.
 
 ## Implementation
 
