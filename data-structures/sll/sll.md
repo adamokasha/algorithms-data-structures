@@ -1,12 +1,12 @@
 # Singly Linked List
 
-## What is a singly linked list?
+## What is a Singly Linked List?
 
-A SLL is a data structure consisting of a sequence of nodes (objects) that have a link to another node.
+A SLL is a data structure consisting of a sequence of nodes (objects) that have a _one way_ link to another node.
 
 They have a head, tail and length property.
 
-![sll_1_result.jpg](sll_1.jpg)
+![Singly Linked List](sll_1.jpg)
 
 ### Creating the Node Class
 
@@ -23,8 +23,6 @@ class Node {
 
 ### Creating the Singly Linked List Class
 
-As mentioned a singly linked list should have a head, tail and length property.
-
 ```javascript
 class SinglyLinkedList {
   constructor() {
@@ -35,17 +33,15 @@ class SinglyLinkedList {
 }
 ```
 
----
-
 ## Adding Methods
 
 ### Push Method
 
 Adds a new node to the end of the list. Returns the list.
 
-#### Overview
+#### Implementation Overview
 
-Set a tail property to the new node.
+If no tail exists set tail to newly created node. If a tail already exists, set the tail to be the newly created node.
 
 #### Pseudocode
 
@@ -75,7 +71,7 @@ push(val) {
 
 Removes the node at the end of the list. Returns the removed node.
 
-#### Overview:
+#### Implementation Overview:
 
 Sever the link to the current tail and set the node previous to it as the new tail.
 
@@ -118,9 +114,9 @@ pop() {
 
 ### Shift Method
 
-Removes a node from the beginning of the list. Returns the removed node.
+Removes the node at the start of the list. Returns the removed node.
 
-#### Overview
+#### Implementation Overview
 
 Set the current head's next node property as the head.
 
@@ -152,7 +148,7 @@ shift() {
 
 Adds a new node to the beginning of the list. Returns the list.
 
-#### Overview
+#### Implementation Overview
 
 Create a new node and sets its next property to be the current head. Set the list's head as this new node.
 
@@ -187,7 +183,7 @@ Create a new node and sets its next property to be the current head. Set the lis
 
 Returns a node at a given index.
 
-#### Overview
+#### Implementation Overview
 
 Traverse to the node at the index by exploiting the fact that each node has a link to the next node. Using a loop and an incrementing counter variable, we start by initiating a `current` node variable to the list's head, and traverse forward by setting `current` to its `current.next` property until we arrive at the specified index.
 
@@ -220,7 +216,7 @@ Traverse to the node at the index by exploiting the fact that each node has a li
 
 Sets a new value at a specified node. Returns true if updated, false if node doesn't exist.
 
-#### Overview
+#### Implementation Overview
 
 Use the get method to return node at given index. Update the node's value.
 
@@ -246,7 +242,7 @@ Use the get method to return node at given index. Update the node's value.
 
 Inserts a new node at a given index. Returns boolean.
 
-#### Overview
+#### Implementation Overview
 
 First capture the next property of the node before the index we're inserting to in a temporary variable. Insert the new node by setting that same previous node's next property to the new node. Point the new node's next property to the temporary variable which holds the rest of the list.
 
@@ -290,7 +286,7 @@ First capture the next property of the node before the index we're inserting to 
 
 Removes node and specified index. Returns removed node;
 
-#### Overview
+#### Implementation Overview
 
 Traverse to the node preceding the node to be removed. Capture the node to be removed's next property (in a variable). Attach the previous node's next property to the removed node's next property. This will sever the removed node from the list's link chain.
 
@@ -325,7 +321,7 @@ Traverse to the node preceding the node to be removed. Capture the node to be re
 
 Reverses the order of the nodes in the list. Returns the list.
 
-#### Overview
+#### Implementation Overview
 
 Start by swapping the head and tail nodes. Set a current node as the head, previous node as null. Loop over each node. At every loop: first capture the next node in a variable, point currentNode's next property to the previous node. Then set the previous node to the current node and current node to the next node for the next loop. See diagram below for an example.
 
