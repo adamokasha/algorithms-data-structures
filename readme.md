@@ -4,9 +4,10 @@
 
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
-  * [Selection Sort](/algorithms/selection-sort/selection-sort.md)
-  * [Insertion Sort](/algorithms/insertion-sort/insertion-sort.md)
-  * [Merge Sort](/algorithms/merge-sort/merge-sort.md)
+  - [Selection Sort](/algorithms/selection-sort/selection-sort.md)
+  - [Insertion Sort](/algorithms/insertion-sort/insertion-sort.md)
+  - [Merge Sort](/algorithms/merge-sort/merge-sort.md)
+  - [Merge Sort](/algorithms/quick-sort/quick-sort.md)
 
 ## Data Structures:
 
