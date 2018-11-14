@@ -146,7 +146,7 @@ shift() {
 
 ### Unshift Method
 
-Adds a new node to the beginning of the list. Returns the list.
+Adds a new node to the start of the list. Returns the list.
 
 #### Implementation Overview
 

@@ -151,3 +151,41 @@ Set the second to first item as the head. Sever the link of the new head to the 
     return oldHead;
   }
 ```
+
+### Unshift Method
+
+Add a node at the start of the list. Returns the list.
+
+#### Implementation Overview
+
+Create a new node. Check if a head property exists on the list. If not set the head and tail to the new node. Otherwise, set the prev property of the old head to be new node, connect the new node to the current head and finally, set the head to be the new node.
+
+#### Pseudocode
+
+- Create a new node.
+- If no head exists
+  - set `this.head` and `this.tail` to the new node
+- Else
+  - Set the prev property of the head to be the new node
+  - Set the next property of the new node to be the head
+  - Set the head to be the new node
+- Increment length
+- Return the list.
+
+#### Code
+
+```javascript
+  unshift(val) {
+    let newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+```
