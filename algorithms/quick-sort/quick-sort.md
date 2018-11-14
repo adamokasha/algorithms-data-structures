@@ -107,3 +107,8 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 #### Diagram
 
 ![Quick Sort](quicksort_2.jpg)
+
+## Sources
+
+- Code
+  - [Computer science in JavaScript: Quicksort](https://humanwhocodes.com/blog/2012/11/27/computer-science-in-javascript-quicksort/), Nicholas C. Zakas, [License](../../licenses/license-1.md)
