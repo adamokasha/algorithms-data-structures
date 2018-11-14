@@ -63,6 +63,10 @@ function partition(arr, left, right) {
 }
 ```
 
+#### Diagram
+
+![Quick Sort](quicksort_1.jpg)
+
 ### Quick Sort
 
 #### Description
@@ -99,3 +103,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   return arr;
 }
 ```
+
+#### Diagram
+
+![Quick Sort](quicksort_2.jpg)
