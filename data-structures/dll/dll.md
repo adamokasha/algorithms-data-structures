@@ -316,3 +316,46 @@ Create a new node node. First, Connect the node previous to the new node's inser
     return true;
   }
 ```
+
+### Remove Method
+
+Removes the node at the given index. Returns the removed node.
+
+#### Implementation Overview
+
+First, sever the link of the removed node to the node previous to it. Then attach that previous node to the node after the removed node. Finally sever the links of the removed node to the list.
+
+#### Pseudocode
+
+- If index is less than zero or greater than `this.length - 1` return false
+- If index is equal to zero use the shift method
+- If index is equal to `this.length` use the pop method.
+- Create variables for the removed node, the previous node and the next node (node next to the removed node)
+- Set the previous node's `next` property to the next node
+- Set the next node's `prev` property to be the previous node
+- Set the removed node's `next` and `prev` properties to `null`
+- Decrement length
+- Return the removed node.
+
+#### Code
+
+```javascript
+  remove (index) {
+    if(index < 0 || index > this.length - 1) return false;
+    if (index === 0) return !!this.shift();
+    if(index === this.length - 1) return !!this.pop();
+    let removedNode = this.get(index);
+    let prevNode = removedNode.prev;
+    let nextNode = removedNode.next;
+
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
+
+    removedNode.prev = null;
+    removedNode.next = null;
+
+    this.length--;
+    return removedNode;
+  }
+
+```
