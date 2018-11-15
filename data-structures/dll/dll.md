@@ -359,3 +359,54 @@ First, sever the link of the removed node to the node previous to it. Then attac
   }
 
 ```
+
+#### Reverse Method
+
+Reverses the list in place. Returns the list.
+
+#### Implementation Overview
+
+First swap the head and tail. Start at the old head (we can call it `current`) and continually reverse the linkages between nodes until the end of the list. To do this, create a `prev` variable and initialize it to `null` and create an unassigned `next` variable to save a "connection" the node after the `prev` and `current`, whose links will be re-arranged. Update `prev` and `current` in each loop after the links are re-arranged to move forwards.
+
+#### Pseudocode
+
+- Swap the list's head and tail.
+  - Save the current head in a variable called `current`
+  - Set the head to be the tail
+  - Set the tail to be `current`
+- Set a `prev` variable to null for the intial swap
+- Create an unassigned `next` variable. This will be used to save a link to the node next to the nodes whose links are being re-arranged.
+- Start a for loop
+  - Set `next = current.next`
+  - Re-arrange the `current` node's connections
+    - Set its `next` property to be that of `prev`
+    - Set its `prev` property to be `next`
+  - Update the variables for the next loop
+    - Set `prev` to be the `current` node
+    - Set `current` to be the `next` node
+- Return the list.
+
+#### Code
+
+```javascript
+    reverse(){
+        let current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+
+        let prev = null;
+        let next;
+
+        for(let i = 0; i < this.length; i++) {
+            next = current.next;
+            current.next = prev;
+            current.prev = next;
+
+            prev = current;
+            current = next;
+        }
+
+        return this;
+    }
+
+```
