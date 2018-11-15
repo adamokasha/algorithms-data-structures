@@ -254,8 +254,8 @@ Use the get method to return the node at the given index. If a node is found, th
 
 #### Pseudocode
 
-- Create a node variable and set it to the return value of calling this.get with the given index.
-- If a node is found, then update its value and return true
+- Create a `node` variable and set it to the return value of calling `this.get` with the given `index`.
+- If a `node` is found, then update its value and return true
 - Else return false.
 
 #### Code
@@ -268,5 +268,51 @@ Use the get method to return the node at the given index. If a node is found, th
       return true;
     }
     return false;
+  }
+```
+
+### Insert Method
+
+Inserts a node at a given index. Returns a boolean.
+
+#### Implementation Overview
+
+Create a new node node. First, Connect the node previous to the new node's insertion index to the new node. Then, connect the node node next to the new node insertion index to the new node.
+
+#### Pseudocode
+
+- If index is smaller than zero or greater than length, then return false
+- If index is equal to zero use the unshift method.
+- If index is equal to `this.length` use the push method.
+- Create a new node.
+- Save the next and previous nodes to variables.
+- Attach the new node to the previous node.
+  - Set the prev node's next property to be the new node.
+  - Set the new node's prev property to be the previous node.
+- Attach the new node to the next node
+  - Set the new node's next property to be the next node
+  - set the next node's prev property to be the new node
+- Increment length
+- Return true.
+
+#### Code
+
+```javascript
+  insert (index, val) {
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return !!this.unshift(val);
+    if(index === this.length) return !!this.push(val);
+    let newNode = new Node(val);
+    let prevNode = this.get(index - 1);
+    let nextNode = prevNode.next;
+
+    prevNode.next = newNode;
+    newNode.prev = prevNode;
+
+    newNode.next = nextNode;
+    nextNode.prev = newNode;
+
+    this.length++;
+    return true;
   }
 ```
