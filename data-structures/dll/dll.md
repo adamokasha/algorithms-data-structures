@@ -210,7 +210,7 @@ If the index is larger than the mid point, traverse backwards starting from the 
 
 - If the `index` is smaller than zero or greater than `length - 1`, then the `index` is in an invalid range. Return undefined.
 - If `index` is 0 return the head.
-- If `index` os equal to `length - 1`, return the tail
+- If `index` is equal to `length - 1`, return the tail
 - Find the mid point between the head and tail
 - Initiate and `i` and a `node` variable
 - If index is smaller than the mid point
@@ -241,5 +241,32 @@ If the index is larger than the mid point, traverse backwards starting from the 
       }
     }
     return node;
+  }
+```
+
+### Set Method
+
+Sets the value at a given node. Return a boolean.
+
+#### Implementation Overview
+
+Use the get method to return the node at the given index. If a node is found, then set the new value and return false. Otherwise return false.
+
+#### Pseudocode
+
+- Create a node variable and set it to the return value of calling this.get with the given index.
+- If a node is found, then update its value and return true
+- Else return false.
+
+#### Code
+
+```javascript
+  set(index, val) {
+    let node = this.get(index);
+    if (node) {
+      node.val = val;
+      return true;
+    }
+    return false;
   }
 ```
