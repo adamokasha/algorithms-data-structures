@@ -68,3 +68,41 @@ Create a new node. If the stack does not have a node at the first property, then
     return ++this.size;
   }
 ```
+
+### Pop Method
+
+#### Description
+
+Removes the most recently added item from the stack. Returns the value of the removed item.
+
+#### Implementation Overview
+
+First check if the stack is empty. If it is, return null.
+
+Next, set the stack's first property's next property as the first property.
+
+#### Pseudocode
+
+- If there is no first property on the stack, then the stack is empty. Return null.
+- Create a `temp` variable to save the old first node
+- Check if the first property and the last property of the stack are the same
+  - If true there is only one item, set `last = null`
+- Set the first property to be first's next property.
+  - Note that in the case where there is only one item (if statement above) the first.next property will be null.
+- Decrement size
+- Return the _value_ of the `temp` variable
+
+#### Code
+
+```javascript
+  pop() {
+    if (!this.first) return null;
+    let temp = this.first;
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.size--;
+    return temp.val;
+  }
+```
