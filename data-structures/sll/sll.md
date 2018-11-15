@@ -181,7 +181,7 @@ Create a new node and sets its next property to be the current head. Set the lis
 
 ### Get Method
 
-Returns a node at a given index.
+Returns the node at a given index.
 
 #### Implementation Overview
 

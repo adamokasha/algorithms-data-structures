@@ -189,3 +189,57 @@ Create a new node. Check if a head property exists on the list. If not set the h
     return this;
   }
 ```
+
+### Get Method
+
+Returns the node at a given index.
+
+#### Note on SLL vs DLL Get Methods
+
+Unlike with a Singly Linked List, we can optimize a DLL's get method due to the two way link between nodes. Since we can now start at the tail and traverse backwards, time complexity can be greatly reduced if we are retrieving a node that is situated near the end of the list.
+
+#### Implementation Overview
+
+First, find the mid point between the head and tail.
+
+If the index is smaller than the mid point, traverse forwards starting from the head.
+
+If the index is larger than the mid point, traverse backwards starting from the tail.
+
+#### Pseudocode
+
+- If the `index` is smaller than zero or greater than `length - 1`, then the `index` is in an invalid range. Return undefined.
+- If `index` is 0 return the head.
+- If `index` os equal to `length - 1`, return the tail
+- Find the mid point between the head and tail
+- Initiate and `i` and a `node` variable
+- If index is smaller than the mid point
+  - Set `node` to `this.head` and traverse forward
+- Else
+  - Set `node` to `this.tail` and traverse backwards
+- Return the node.
+
+#### Code
+
+```javascript
+  get(index) {
+    if (index < 0 || index > this.length - 1) return undefined;
+    if (index === 0) return this.head;
+    if (index === this.length - 1) return this.tail;
+    let middle = Math.floor(this.length / 2);
+    let node;
+    let i;
+    if (index < middle) {
+      node = this.head;
+      for (i = 0; i < index; i++) {
+        node = node.next;
+      }
+    } else {
+      node = this.tail;
+      for (i = this.length - 1; i > index; i--) {
+        node = node.prev;
+      }
+    }
+    return node;
+  }
+```
