@@ -14,3 +14,4 @@
 - Linked Lists
   - [Singly Linked List](/data-structures/sll/sll.md)
   - [Doubly Linked List](/data-structures/dll/dll.md)
+  - [Stack](/data-structures/stack/stack.md)
