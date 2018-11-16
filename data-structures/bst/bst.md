@@ -10,6 +10,8 @@ A binary search tree is a tree-like data structure with the following characteri
 - Each node's right subtree node must have a value that is greater than the parent
 - All nodes must have unique values
 
+![Binary Search Tree](bst_1.jpg)
+
 ## Creating the Node Class
 
 ```javascript
