@@ -87,3 +87,52 @@ Create a new node and start at the root. If the value of the new node is less th
     }
   }
 ```
+
+### Find Method
+
+#### Description
+
+Finds a node by traversing the tree's subtrees in the correct order. Returns a node.
+
+#### Implementation Overview
+
+Loop while while the tree can still be traversed and the node has no been found.
+
+Starting at the root, if the value being searched is smaller than the current node's value, then traverse down the left subtree. If the value being searched is greater than the current node's value, then traverse down the right subtree.
+
+If previous two conditions are not met and current is not null, then return the current node. If current is null return undefined.
+
+#### Pseudocode
+
+- If the root is `null` return false
+- Create a variable `currrent` and set it as the root
+- Create a variable `found` and set it to false
+- While there is a current node (not `null`) and the value has not been found
+  - If the value of the node is less than the value of the current node
+    - Set `current` to `current.left` to traverse to the left subtree node
+  - If the value of the node is greater than the value of the current node
+    - Set `current` to `current.right` to traverse to the right subtree node
+  - Else, the node has been found. Set `found = true`
+- If the loop has ended and the node was no found, `return undefined`
+- Return the current node.
+
+#### Code
+
+```javascript
+  find(val) {
+    if (this.root === null) return false;
+    var current = this.root,
+      found = false;
+    while (current && !found) {
+      if (val < current.val) {
+        current = current.left;
+      } else if (val > current.val) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+    if (!found) return undefined;
+    return current;
+  }
+```
