@@ -15,3 +15,5 @@
   - [Singly Linked List](/data-structures/sll/sll.md)
   - [Doubly Linked List](/data-structures/dll/dll.md)
 - [Stacks](/data-structures/stack/stack.md) and [Queues](/data-structures/queue/queue.md)
+- Trees
+  - [Binary Search Tree](/data-structures/bst/bst.md)
