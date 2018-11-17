@@ -278,3 +278,41 @@ _first_ calls itself recursively on the node's left and right children, _then_ p
     return data;
   }
 ```
+
+### Depth First Search - In Order
+
+#### Description
+
+Traverses vertically in an _ordered_ fashion: the nodes in the path are add in ascending order.
+
+Returns an array showing the ordered path traversal.
+
+#### Implementation Overview
+
+Start at the root and create a traverse helper function which
+_first_ calls itself recursively on the node's left child, _then_ pushes the node to an array, and _then_ calls itself recursively on its right child.
+
+#### Pseudocode
+
+- Create an empty array called `data`
+- Create a `traverse` helper function that accepts a node as an argument
+  - If there is a left child node, traverse it
+  - Push the node's value to the data array
+  - If there is a right child node, traverse it
+- Call the helper function
+- Return `data`.
+
+#### Code
+
+```javascript
+  dfsInOrder() {
+    const data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node.val);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
+```
