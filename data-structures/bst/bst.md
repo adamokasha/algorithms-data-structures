@@ -207,12 +207,14 @@ Return the data array.
 
 #### Description
 
-Traverses vertically in a _pre ordered_ fashion: the next node in the path is preceded by the parent node. Returns an array showing the ordered path traversal.
+Traverses vertically in a _pre ordered_ fashion: the next node in the path is preceded by the parent node.
+
+Returns an array showing the ordered path traversal.
 
 #### Implementation Overview
 
 Start at the root and create a traverse helper function which
-_first_ pushes the node to an array, then calls itself recursively on the node's left and right children.
+_first_ pushes the node to an array, _then_ calls itself recursively on the node's left and right children.
 
 #### Pseudocode
 
@@ -233,6 +235,44 @@ _first_ pushes the node to an array, then calls itself recursively on the node's
       data.push(node.val);
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
+```
+
+### Depth First Search - Post Order
+
+#### Description
+
+Traverses vertically in a _post ordered_ fashion: the parent nodes in the path are preceded by the child nodes.
+
+Returns an array showing the ordered path traversal.
+
+#### Implementation Overview
+
+Start at the root and create a traverse helper function which
+_first_ calls itself recursively on the node's left and right children, _then_ pushes the node to an array.
+
+#### Pseudocode
+
+- Create an empty array called `data`
+- Create a `traverse` helper function that accepts a node as an argument
+  - If there is a left child node, traverse it
+  - If there is a right child node, traverse it
+  - Push the node's value to the data array
+- Call the helper function
+- Return `data`.
+
+#### Code
+
+```javascript
+  dfsPostOrder() {
+    const data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.val);
     }
     traverse(this.root);
     return data;
