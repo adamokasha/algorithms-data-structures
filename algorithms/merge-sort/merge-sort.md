@@ -2,7 +2,7 @@
 
 ## Description
 
-Sorts a list (array) by splitting it down to single or zero element arrays and then recursively merging. Uses a divide and conquer approach and explots the face that a single or zero element array is always sorted.
+Sorts a list (array) by splitting it down to single or zero element arrays and then recursively merging. Uses a divide and conquer approach and exploits the face that single or zero elements arrays are always sorted.
 
 ## Implementation
 
@@ -58,7 +58,7 @@ function merge(arr1, arr2) {
 
 #### Description
 
-Recursively split array in half. Return the array when length is less than one.
+Recursively split array in half. Return the array when length is less than or equal to one.
 
 #### Overview
 
