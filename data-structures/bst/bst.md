@@ -138,3 +138,68 @@ If previous two conditions are not met and current is not null, then return the 
     return current;
   }
 ```
+
+## Traversal
+
+To traverse a binary search tree we can take two approaches:
+
+- Breadth first search
+  - Traverses each level of the tree horizontal
+- Depth first search
+  - First, traverses the left subtrees vertically (all the way to the furthest branch), then traverses the right subtrees at each level
+
+#### Breath First Search
+
+![Breadth First Search](bst_bfs_1.jpg)
+
+#### Depth First Search
+
+![Breadth First Search](bst_dfs_1.gif)
+
+### Breadth First Search
+
+#### Description
+
+Traverses the tree horizontally. Returns an array showing the ordered path traversal.
+
+#### Implementation Overview
+
+For simplicity, the queue used in this method will be an array and its methods will be the associated array methods.
+
+Create a queue to keep track of the child nodes of each parent node.
+
+Starting from the root, push each node into the queue and then remove it and place it into another array (data). Add its left and right child elements to the queue. Continue inserting and removing from this queue until it is empty.
+
+Return the data array.
+
+#### Pseudocode
+
+- Start at the root node by saving it as the `node` variable.
+- Create a `queue` array and a `data` array to "log" the traversed path
+- Push `node` into the queue
+- While `queue` still has elements:
+  - Use the shift method and set the `node` as its return value
+  - Push the value of the node into `data`
+  - If the node has a left child, add it to the queue
+  - If the node has a right child, add it to the queue
+- Return `data`.
+
+#### Code
+
+```javascript
+  bfs() {
+    let node = this.root;
+    const queue = [];
+    const data = [];
+    queue.push(node);
+
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node.val);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
+
+```
