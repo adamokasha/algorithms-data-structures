@@ -148,7 +148,7 @@ To traverse a binary search tree we can take two approaches:
 - Depth first search
   - First, traverses the left subtrees vertically (all the way to the furthest branch), then traverses the right subtrees at each level
 
-#### Breath First Search
+#### Breadth First Search
 
 ![Breadth First Search](bst_bfs_1.jpg)
 
@@ -201,5 +201,40 @@ Return the data array.
     }
     return data;
   }
+```
 
+### Depth First Search - Pre Order
+
+#### Description
+
+Traverses vertically in a _pre ordered_ fashion: the next node in the path is preceded by the parent node. Returns an array showing the ordered path traversal.
+
+#### Implementation Overview
+
+Start at the root and create a traverse helper function which
+_first_ pushes the node to an array, then calls itself recursively on the node's left and right children.
+
+#### Pseudocode
+
+- Create an empty array called `data`
+- Create a `traverse` helper function that accepts a node as an argument
+  - Push the node's value to the data array
+  - If there is a left child node, traverse it
+  - If there is a right child node, traverse it
+- Call the helper function
+- Return `data`.
+
+#### Code
+
+```javascript
+  dfsPreOrder() {
+    const data = [];
+    function traverse(node) {
+      data.push(node.val);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
 ```
