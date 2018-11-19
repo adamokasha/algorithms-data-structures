@@ -90,3 +90,55 @@ First get the index by using the hash function. Check to see if there is a bucke
     return undefined;
   }
 ```
+
+### Keys Method
+
+Returns all the keys in the hash table.
+
+#### Description
+
+Create an empty array to return all the keys at the end. Loop over the hash table, and at any index which has a bucket, or in other words isn't empty, add each item's keys if it hasn't already been added.
+
+#### Code
+
+```javascript
+  keys() {
+    const keys = []
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        this.keyMap[i].forEach(item => {
+          if (!keys.includes(item[0])) {
+            keys.push(item[0])
+          }
+      })
+    }
+  }
+    return keys;
+  }
+```
+
+### Values Method
+
+Returns all the values in the hash table.
+
+#### Description
+
+Create an empty array to return all the values at the end. Loop over the hash table, and at any index which has a bucket, or in other words isn't empty, add each item's values if it hasn't already been added.
+
+#### Code
+
+```javascript
+  keys() {
+    const values = []
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        this.keyMap[i].forEach(item => {
+          if (!values.includes(item[1])) {
+            values.push(item[1])
+          }
+      })
+    }
+  }
+    return values;
+  }
+```
