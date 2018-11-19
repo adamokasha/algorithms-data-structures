@@ -68,3 +68,7 @@ First get the index by using the hash function. Then check if the index in the t
 ```
 
 ### Get Method
+
+Retrieves the specified key from the hash table.
+
+#### Implementation Overview
