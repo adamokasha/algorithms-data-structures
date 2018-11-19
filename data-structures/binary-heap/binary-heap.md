@@ -89,64 +89,67 @@ Note:
 
 #### Pseudocode
 
-- Check if the tree has any values. If not return `undefined`
-- Check if the tree has only one value. If so return the that single value.
-- Create a swap helper function
-- Swap the first element (the root) and the last element
-- Pop the old root off the tree and save it in a variable `oldRoot`
-- Create a `parentIndex` variable and set to 0
-- Start a Loop
-  - Create and set the required variables:
-    - Create a `leftChildIndex` variable and set to `2 * parentIndex + 1` or `null` if outside of the values array's boundary.
-    - Create a `righChildIndex` variable and set to `2 * parentIndex + 1` or `null` if outside of the values array's boundary.
-    - Create a `parent` variable set to element at `parentIndex`
-    - Create a `leftChild` variable set to the element at `leftChildIndex` if it exists or `null`
-    - Create a `rightChild` variable set to the element at `rightChildIndex` if it exists or `null`
-  - If the parent is greater than or equal to both the `leftChild` and `rightChild`. If true, then break because the element has "sunk" to the correct spot.
-  - Else
-    - Find the index of the larger child `largerChildIndex`
-    - Swap the parent with the larger child
-    - Set `parent = largerChildIndex`
-- Return `oldRoot`
+- Create a variable to save the first item in the tree called `min`
+- Create a variable to save the last item in the tree called `end`
+- If `this.values.length > 0`
+  - Swap the first item in the tree with `end`
+  - Use a sinkDown helper function
+    - Start at an `index` of 0, and with `element` value at that index
+    - Create `leftChildIndex` and `rightChildIndex`
+    - Initiate `leftChild` and `rightChild`
+    - Create a `swap` variable to determine what to swap, set initially at `null`
+    - If the `leftChildIndex < length` (ie. within bounds)
+      - Give `leftChild` the value at `leftChildIndex` in the tree
+      - If `leftChild`'s value is greater than the `element`'s, then set `swap` as `leftChildIndex`
+    - If the `rightChildIndex < length` (ie. within bounds)
+      - Give `rightChild` the value at `rightChildIndex` in the tree
+      - If `swap === null` and the `rightChild`'s value is greater than `element`'s **OR** if `swap !== null` and `rightChild`'s value is greater than `leftChild`'s
+        - Set `swap` to `rightChildIndex`
+    - If `swap === null`, element doesn't need to sink further, break the loop.
+    - Swap the value at `index` with that at `swap`
+    - Set `index` to `swap` for the next loop
 
 #### Code
 
 ```javascript
   extractMax() {
-    if (!this.values.length) return undefined;
-    if (this.values.length === 1) return this.values.pop();
-
-    function swap(arr, i, j) {
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+    const min = this.values[0];
+    const end = this.values.pop();
+    if (this.values.length > 0) {
+      this.values[0] = end;
+      this.bubbleUp();
     }
-
-    swap(this.values, 0, this.values.length - 1);
-    const oldRoot = this.values.pop();
-    let parentIndex = 0;
-
+    return min;
+  }
+  bubbleUp() {
+    let index = 0;
+    const length = this.values.length;
+    const element = this.values[0];
     while (true) {
-      if (!this.values.length) return undefined;
-      const leftChildIndex =
-          2 * parentIndex + 1 <= this.values.length - 1
-            ? 2 * parentIndex + 1
-            : null,
-        rightChildIndex =
-          2 * parentIndex + 2 <= this.values.length - 1
-            ? 2 * parentIndex + 2
-            : null,
-        parent = this.values[parentIndex],
-        leftChild = leftChildIndex ? this.values[leftChildIndex] : null,
-        rightChild = rightChildIndex ? this.values[rightChildIndex] : null;
+      let leftChildIndex = 2 * index + 1;
+      let rightChildIndex = 2 * index + 2;
+      let leftChild, rightChild;
+      let swap = null;
 
-      if (parent >= leftChild && parent >= rightChild) break;
-
-      const largerChildIndex =
-        leftChild > rightChild ? leftChildIndex : rightChildIndex;
-      swap(this.values, parentIndex, largerChildIndex);
-      parentIndex = largerChildIndex;
+      if (leftChildIndex < length) {
+        leftChild = this.values[leftChildIndex];
+        if (leftChild > element) {
+          swap = leftChildIndex;
+        }
+      }
+      if (rightChildIndex < length) {
+        rightChild = this.values[rightChildIndex];
+        if (
+          (swap === null && rightChild > element) ||
+          (swap !== null && rightChild > leftChild)
+        ) {
+          swap = rightChildIndex;
+        }
+      }
+      if (swap === null) break;
+      this.values[index] = this.values[swap];
+      this.values[swap] = element;
+      index = swap;
     }
-    return oldRoot;
   }
 ```

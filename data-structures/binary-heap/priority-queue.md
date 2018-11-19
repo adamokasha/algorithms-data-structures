@@ -134,34 +134,34 @@ Note:
     return min;
   }
   sinkDown() {
-    let idx = 0;
+    let index = 0;
     const length = this.values.length;
     const element = this.values[0];
     while (true) {
-      let leftChildIdx = 2 * idx + 1;
-      let rightChildIdx = 2 * idx + 2;
+      let leftChildIndex = 2 * index + 1;
+      let rightChildIndex = 2 * index + 2;
       let leftChild, rightChild;
       let swap = null;
 
-      if (leftChildIdx < length) {
-        leftChild = this.values[leftChildIdx];
+      if (leftChildIndex < length) {
+        leftChild = this.values[leftChildIndex];
         if (leftChild.priority < element.priority) {
-          swap = leftChildIdx;
+          swap = leftChildIndex;
         }
       }
-      if (rightChildIdx < length) {
-        rightChild = this.values[rightChildIdx];
+      if (rightChildIndex < length) {
+        rightChild = this.values[rightChildIndex];
         if (
           (swap === null && rightChild.priority < element.priority) ||
           (swap !== null && rightChild.priority < leftChild.priority)
         ) {
-          swap = rightChildIdx;
+          swap = rightChildIndex;
         }
       }
       if (swap === null) break;
-      this.values[idx] = this.values[swap];
+      this.values[index] = this.values[swap];
       this.values[swap] = element;
-      idx = swap;
+      index = swap;
     }
   }
 ```
