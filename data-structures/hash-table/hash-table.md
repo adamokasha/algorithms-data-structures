@@ -69,6 +69,24 @@ First get the index by using the hash function. Then check if the index in the t
 
 ### Get Method
 
-Retrieves the specified key from the hash table.
+Given a key, retrieves the specified value from the hash table.
 
 #### Implementation Overview
+
+First get the index by using the hash function. Check to see if there is a bucket at the index in the has table. If there is, loop through the bucket and return the value of the item that matches the key.
+
+#### Code
+
+```javascript
+  get(key) {
+    const index = this._hash(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1]
+        }
+      }
+    }
+    return undefined;
+  }
+```
