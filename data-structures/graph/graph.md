@@ -107,6 +107,8 @@ First, remove the vertex from any other vertex's adjacency list. Then, delete th
 
 ### Depth First Traversal - Recursive
 
+Traverses the graph by repeatedly visiting the next adjacent vertex first.
+
 #### Implementation Overview
 
 Create an array for the map the traversal path and an object to record visited that have been visited.
@@ -134,6 +136,7 @@ Call the recursive traverse function. Then, return the array that mapped the tra
   dftRecursive(start) {
     const result = [];
     const visited = {};
+
     const traverse = (vertex) => {
       if (!vertex) return null;
       if (!visited[vertex]) {
@@ -146,7 +149,74 @@ Call the recursive traverse function. Then, return the array that mapped the tra
         })
       }
     }
+
     traverse(start);
+    return result;
+  }
+```
+
+### Depth First Traversal - Iterative
+
+Traverses the graph by repeatedly visiting the next adjacent vertex first.
+
+#### Implementation Overview
+
+Implement a stack and add to it the starting vertex. Create a result array. Create an object to map over visited vertices.
+
+While the stack is not empty, remove the last vertex from it and add that removed vertex's adjacent vertices into the stack. This pattern will continually process adjacent vertices first, resulting in depth first traversal.
+
+Return the result array.
+
+#### Code
+
+```javascript
+  dftIterative(start) {
+    const stack = [start];
+    const result = [];
+    const visited = {};
+    let popped;
+
+    while (stack.length) {
+      popped = stack.pop();
+      if (!visited[popped]) {
+        visited[popped] = true;
+        result.push(popped);
+        this.adjacencyList[popped].forEach(adjacent => stack.push(adjacent))
+      }
+    }
+    return result;
+  }
+```
+
+### Breadth First Traversal
+
+Traverses the graph by first visiting all siblings of the current vertex before traversing the adjacent vertices further.
+
+#### Implementation Overview
+
+Implement a queue and add to it the starting vertex. Create a result array. Create an object to map over visited vertices.
+
+While the queue is not empty, remove the first vertex from it and add that removed vertex's adjacent vertices into the queue. This pattern will always process the current vertex before adjacent vertices, resulting in breadth first traversal.
+
+Return the result array.
+
+#### Code
+
+```javascript
+  bftIterative(start) {
+    const queue = [start];
+    const result = [];
+    const visited = {};
+    let shifted;
+
+    while (queue.length) {
+      shifted = queue.shift();
+      if (!visited[shifted]) {
+        visited[shifted] = true;
+        result.push(shifted);
+        this.adjacencyList[shifted].forEach(adjacent => queue.push(adjacent))
+      }
+    }
     return result;
   }
 ```
