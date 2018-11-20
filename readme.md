@@ -20,3 +20,4 @@
   - [Binary Heap](/data-structures/binary-heap/binary-heap.md)
     - [Priority Queue](/data-structures/binary-heap/priority-queue.md)
 - [Hash Table](/data-structures/hash-table/hash-table.md)
+- [Graph](/data-structures/graph/graph.md)
