@@ -17,7 +17,7 @@ Graphs can be used for building:
 - Social Networks
 - Recommendation systems
 
-## Storing Vertices and Edges
+## The Graph: Adjacency Matrix vs Adjacency List
 
 The graph and its vertices and edges can be represented in the following ways:
 
@@ -28,7 +28,7 @@ The graph and its vertices and edges can be represented in the following ways:
   - A list maps only each vertex's adjacent vertices (ie. neighbouring nodes).
   * Since only adjacent vertices are mapped for each vertex, iterating over all edges is faster than in an adjacency matrix but slower for looking up a specific edge.
 
-**Note**
+**Note**: In this implementation below we will be using an **adjacency list**.
 
 ## Creating the Graph Class
 
@@ -59,3 +59,46 @@ Adds a vertex to the graph.
 ### Adding an Edge
 
 Adds an edge(or a connection) to the specified vertex.
+
+#### Code
+
+```javascript
+  addEdge(vertex1, vertex2) {
+    this.adjacencyList[vertex1].push(vertex2);
+    this.adjacencyList[vertex2].push(vertex1);
+  }
+```
+
+### Removing an Edge
+
+Removes an edge from the specified vertex.
+
+#### Implementation Overview
+
+Filter out the edge from the specified vertex's adjacent vertices. Repeat on the filtered out vertex's adjacent vertices but this time filter out the vertex specified earlier.
+
+#### Code
+
+```javascript
+  removeEdge(vertex1, vertex2) {
+    this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(vertex => vertex !== vertex2)
+    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(vertex => vertex !== vertex1)
+  }
+```
+
+### Remove Vertex
+
+Removes a specified vertex.
+
+#### Implementation Overview
+
+First, remove the vertex from any other vertex's adjacency list. Then, delete the vertex.
+
+#### Code
+
+```javascript
+  removeVertex(vertex) {
+    this.adjacencyList[vertex].forEach(adjacent => this.removeEdge(adjacent, vertex));
+    delete this.adjacencyList[vertex];
+  }
+```
