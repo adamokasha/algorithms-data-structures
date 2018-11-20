@@ -102,3 +102,51 @@ First, remove the vertex from any other vertex's adjacency list. Then, delete th
     delete this.adjacencyList[vertex];
   }
 ```
+
+## Traversal
+
+### Depth First Traversal - Recursive
+
+#### Implementation Overview
+
+Create an array for the map the traversal path and an object to record visited that have been visited.
+
+Create a traverse function which first checks to see if a vertex has been visited. If not it first pushes that vertex to the array mapping the traversal path then for each adjacent vertex, it checks if it has been visited. If it has not, then it calls itself recursively on that (adjacent) vertex.
+
+Call the recursive traverse function. Then, return the array that mapped the traversal path.
+
+#### Pseudocode
+
+- Create an array called `result` to map the traversal path
+- Create an object to map the visited vertices
+- Create a helper function called `traverse` that:
+  - If vertex is not in the graph, return `null`
+  - If vertex has not been visited
+    - Add vertex to `visited`
+    - Add vertex to `result`
+    - For each of the adjacent vertices:
+      - If they have not been visited recursively call `traverse`
+- Return `result`
+
+#### Code
+
+```javascript
+  dftRecursive(start) {
+    const result = [];
+    const visited = {};
+    const traverse = (vertex) => {
+      if (!vertex) return null;
+      if (!visited[vertex]) {
+        visited[vertex] = true;
+        result.push(vertex);
+        this.adjacencyList[vertex].forEach(adjacent => {
+          if (!visited[adjacent]) {
+            traverse(adjacent);
+          }
+        })
+      }
+    }
+    traverse(start);
+    return result;
+  }
+```
