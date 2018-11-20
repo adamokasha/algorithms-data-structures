@@ -11,6 +11,9 @@ Graphs can be:
 - Directed or Undirected
   - Directions are assigned (or not assigned) between vertices
 
+![Unweighted Undirected Graph](graph_1.jpg)
+![Directed Graph](graph_2.jpg) ![Weighted Directed Graph](graph_3.jpg)
+
 Graphs can be used for building:
 
 - Maps
