@@ -8,6 +8,7 @@
 - [Max Character](algorithms/max-char/max-char.md)
 - [FizzBuzz](algorithms/fizzbuzz/fizzbuzz.md)
 - [Array Chunking](/algorithms/array-chunking/array-chunking)
+- [Anagrams](/algorithms/anagrams/anagrams.md)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
