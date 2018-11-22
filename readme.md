@@ -7,6 +7,7 @@
 - [Integer Reversal](/algorithms/integer-reversal/integer-reversal.md)
 - [Max Character](algorithms/max-char/max-char.md)
 - [FizzBuzz](algorithms/fizzbuzz/fizzbuzz.md)
+- [Array Chunking](/algorithms/array-chunking/array-chunking)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
