@@ -2,6 +2,7 @@
 
 ## Algorithms:
 
+- [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
   - [Selection Sort](/algorithms/selection-sort/selection-sort.md)
