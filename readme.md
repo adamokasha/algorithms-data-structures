@@ -4,6 +4,8 @@
 
 - [String Reversal](/algorithms/string-reversal/string-reversal.md)
 - [Palindromes](/algorithms/palindromes/palindromes.md)
+- [Integer Reversal](/algorithms/integer-reversal/integer-reversal.md)
+- [Max Character](algorithms/max-char/max-char.md)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
