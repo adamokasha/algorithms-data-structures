@@ -29,7 +29,7 @@ function linearSearch(arr, val) {
 
 # Binary Search
 
-Usiesa divide and conquer approach by choosing the element in the middle and shrinking the searching window to the left or right based on that middle point being smaller or greater than the value being searched. **Only works on a sorted array**.
+Uses a divide and conquer approach by choosing the element in the middle and shrinking the searching window to the left or right based on that middle point being smaller or greater than the value being searched. **Only works on a sorted array**.
 
 ### Implementation Overview
 

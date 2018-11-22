@@ -2,6 +2,7 @@
 
 ## Algorithms:
 
+- [String Reversal](/algorithms/string-reversal/string-reversal.md)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
