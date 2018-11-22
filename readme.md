@@ -3,6 +3,7 @@
 ## Algorithms:
 
 - [String Reversal](/algorithms/string-reversal/string-reversal.md)
+- [Palindromes](/algorithms/palindromes/palindromes.md)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
