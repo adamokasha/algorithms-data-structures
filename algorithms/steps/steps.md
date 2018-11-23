@@ -54,11 +54,11 @@ function steps(n) {
 
 The function should take in three parameters: n, row and stair (the empty string being built up to represent a stair).
 
-The function should recursively call itself until exit condition is met: n is equal to row (row will be 0 indexed). `Stair.length` will act as the index for each column.
+The function should recursively call itself until exit condition is met: n is equal to row (row will be 0 indexed). `stair.length` will act as the index for each column.
 
 At every call:
 
-- Check for exit condition `n === row`
+- Check for exit condition `row === n`
 - If `n === stair.length` that is when have the entire row (stair) ready to be printed.
   - Print the stair
   - Call the function recursively starting at the next row. Start with an empty string.
@@ -75,6 +75,7 @@ function steps(n, row = 0, stair = "") {
   }
 
   if (n === stair.length) {
+    console.log(stair);
     return steps(n, row + 1);
   }
 
