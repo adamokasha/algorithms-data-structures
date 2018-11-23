@@ -21,12 +21,9 @@ Create a function that given integer n returns an n \* n spiraling matrix.
 
 Initiate the matrix by pushing n number of arrays into an array.
 
-Create a counter variable to keep track of the number we're adding to the matrix.
-
-Create variables for columns and rows boundaries at their start and end.
-
-Create an outer loop that runs while the starting column and starting row are less than or equal to their ending counterparts.
-
+- Create a counter variable to keep track of the number we're adding to the matrix.
+- Create variables for columns and rows boundaries at their start and end.
+- Create an outer loop that runs while the starting column and starting row are less than or equal to their ending counterparts.
 - Create an inner loop for each side of the matrix starting clockwise for the first side:
   - Loop and add the counter value to the side of the matrix. Increment the counter variable at each loop.
   - "Shrink" that side's boundary.
@@ -72,7 +69,7 @@ function matrix(n) {
     }
     endRow--;
 
-    // start column
+    // Start column
     for (let i = endRow; i >= startRow; i--) {
       results[i][startColumn] = counter;
       counter++;
