@@ -9,6 +9,7 @@
 - [FizzBuzz](algorithms/fizzbuzz/fizzbuzz.md)
 - [Array Chunking](/algorithms/array-chunking/array-chunking)
 - [Anagrams](/algorithms/anagrams/anagrams.md)
+- [Print Steps](/algorithms/steps/steps.md)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
