@@ -8,7 +8,7 @@ The bubble sort algorithm sorts a list by comparing adjacent items and swapping 
 
 ### Overview
 
-Create an outer loop that loops over the entire array. Create an inner loop that again loops over the entire array and performs a swap if two items are in incorrect order. When the inner loop has ended, an item will have reached its correct place in the list. The outer loop will decrement, shrinking the sorting "window", and the inner loop will start again. This process is repeated until all items are in their correct place.
+Create an outer loop that loops over the entire array from the end to the start (this acts as a sorting window). Create an inner loop that again loops over the entire array from the start to the end of the sorting window and performs a swap if two items are in incorrect order. When the inner loop has ended, an item will have reached its correct place in the list. The outer loop will decrement, shrinking the sorting "window", and the inner loop will start again. This process is repeated until all items are in their correct place.
 
 ### Pseudocode
 
