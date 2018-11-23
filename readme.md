@@ -10,6 +10,8 @@
 - [Array Chunking](/algorithms/array-chunking/array-chunking)
 - [Anagrams](/algorithms/anagrams/anagrams.md)
 - [Print Steps](/algorithms/steps/steps.md)
+- [Pyramid](/algorithms/pyramid/pyramid.md)
+- [Matrix Spiral](/algorithms/matrix-spiral/matrix-spiral.md)
 - [Searching](/algorithms/searching/searching.md)
 - Sorting
   - [Bubble Sort](/algorithms/bubble-sort/bubble-sort.md)
