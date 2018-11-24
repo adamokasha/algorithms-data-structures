@@ -18,11 +18,11 @@ Create an inner loop that starts at the end of the sorted segment and works back
   - `value`: to compare an unsorted element with elements in the sorted segment
   - `i`: to iterate over the unsorted segment
   - `j`: to iterate over the sorted segment
-- Create an outer loop starting from the second position of the array to loop over the unsegmented section
+- Create an outer loop starting from the second position of the array to loop over the unsorted section
   - Set `value` to be that of the element at the current index to save it (we will be shifting elements around later).
-  - Create an inner loop to compare `value` with elements in the sorted segment
-    - Shift each element that is greater one element over: `arr[j + 1] = arr[j]`
-  - Insert the current element's value at one position over from where the inner loop broke: `arr[j + 1] = value`. This is the insertion point.
+  - Create an inner loop that shift items in the sorted segment that is greater than `value`
+    - To shift: `arr[j + 1] = arr[j]`
+  - Insert the current element's value at one position over from where the inner loop broke: `arr[j + 1] = value` (due to decrementing). This is the insertion point.
 - Return the array.
 
 ### Code
