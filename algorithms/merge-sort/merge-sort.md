@@ -30,10 +30,10 @@ In the case where one array is longer than the other or when the loop finishes i
 #### Code
 
 ```javascript
-
 function merge(arr1, arr2) {
   const merged = [];
-  let i = 0, j = 0;
+  let i = 0,
+    j = 0;
 
   while (i < arr1.length || j < arr2.length) {
     if (i === arr1.length && j < arr2.length) {
@@ -50,6 +50,7 @@ function merge(arr1, arr2) {
       merged.push(arr2[j]);
       j++;
     }
+  }
   return merged;
 }
 ```
