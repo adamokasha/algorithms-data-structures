@@ -25,7 +25,7 @@ Returns an index to be used on the next call to set the boundary of the next seg
 - We initiate a while loop that starts at `i` and `j`’s initial values (which when partition is first invoked, are 0 and arr.length - 1, respectively).
 - The `i` loop will run until it finds an improperly sorted item relative to its side of the partition, that is an element larger than the pivot and sitting on the left side. This loop continues while the value of the current array element is smaller than or equal to the pivot value.
 - The `j` loop will run until it finds and improperly sorted item relative to its side of the partition, that is an element smaller than the pivot and sitting on the right side. This loop continues while the value of the current array element is larger than or equal to the pivot value.
-- Once booth loops have stopped, a check occurs to see if the element at the `i` index is smaller than or equal the element at the `j` index. If this is true then we must swap because the elements are misplaced in the current segment of the array.
+- Once we have broken out of booth loops, a check occurs to see if the i index is smaller than or equal to the j index. If this is true then we must swap because pointers are stopped at misplaced items relative to the pivot.
 - Increment `i` and decrement `j` to continue converging on the pivot point from both sides.
 - Repeat until the outermost loop condition is no longer true and return the `i` index. This index will determine where to start the partition on the next recursive call to the partition function.
 
