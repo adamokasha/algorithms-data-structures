@@ -82,8 +82,8 @@ On each call to quickSort we first create an initial partition. Then we check if
 - First, for simplification, set the default parameters to be able to invoke the function by only passing an array as a parameter. These will be `left = 0` and `right = arr.length - 1` on the first call.
 - Short circuit: If array has less than two items, then it’s either empty or a single element array and both are always sorted. Simply return the array.
 - Invoke partition for the segment of the array. This will partition the segment and return an `index` to partition both halves of that segment further.
-- If left is less than `index-1` that means there exists a smaller segment of the array that the partition function has not sorted. Call partition on the left side.
-- If right is greater than `index`, there exists a smaller segment of the array that the partition function has not sorted. Call partition on the right side.
+- If left is less than `index-1` that means there exists a smaller segment of the array that the partition function has not sorted. Call quickSort (recursively) on the left side.
+- If right is greater than `index`, there exists a smaller segment of the array that the partition function has not sorted. Call quickSort (recursively) on the right side.
 - Return the array.
 
 #### Code
