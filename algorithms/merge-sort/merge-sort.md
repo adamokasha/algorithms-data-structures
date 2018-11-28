@@ -37,10 +37,10 @@ function merge(arr1, arr2) {
 
   while (i < arr1.length || j < arr2.length) {
     if (i === arr1.length && j < arr2.length) {
-      return merged.concat(arr2.slice(j, arr2.length));
+      return merged.concat(arr2.slice(j));
     }
     if (j === arr2.length && i < arr1.length) {
-      return merged.concat(arr1.slice(i, arr1.length));
+      return merged.concat(arr1.slice(i));
     }
 
     if (arr1[i] < arr2[j]) {
