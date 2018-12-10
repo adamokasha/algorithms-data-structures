@@ -39,3 +39,11 @@ function buildWordMap(str) {
   return wordMap;
 }
 ```
+
+### Big O
+
+#### Time Complexity
+
+| Best | Average | Worst |
+| :--: | :-----: | :---: |
+| O(n) |  O(n)   | O(n)  |
