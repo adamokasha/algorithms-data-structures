@@ -8,6 +8,7 @@
 - [Max Character](algorithms/max-char/max-char.md)
 - [FizzBuzz](algorithms/fizzbuzz/fizzbuzz.md)
 - [Harmless Ransom Note](/algorithms/harmless-ransom-note/harmless-ransom-note.md)
+- [Caesar Cipher](/algorithms/caesar-cipher/caesar-cipher.md)
 - [Array Chunking](/algorithms/array-chunking/array-chunking)
 - [Anagrams](/algorithms/anagrams/anagrams.md)
 - [Print Steps](/algorithms/steps/steps.md)
