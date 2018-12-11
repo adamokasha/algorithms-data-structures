@@ -1,10 +1,10 @@
 # Caesar Cipher
 
-The Caesar cipher is a simple cipher which encrypts a string by shifting the character over by `n`, alphabetically. For example, `abc -> cde` is a Caesar cipher that where the shift value is `n = 2`.
+The Caesar cipher is a simple cipher which encrypts a string by shifting the character over by `n`, alphabetically. For example, `abc -> cde` is a Caesar cipher where the shift value is `n = 2`.
 
 ### Overview
 
-Create an array of letters. Use a lower case duplicate of the string passed in and loop over ever letter in the string to be encrypted.
+Create an array of letters. Use a lower case duplicate of the string passed in and loop over every letter in the string to be encrypted.
 
 If the index when we shift is greater than the length of our array of letters (25 for zero based array in this case), subtract by 26 to get the index of the letter to add to the encrypted string.
 
