@@ -122,39 +122,36 @@ Call the recursive traverse function. Then, return the array that mapped the tra
 
 #### Pseudocode
 
-- Create an array called `result` to map the traversal path
+- Create an array called `path` to map the traversal path
 - Create an object to map the visited vertices
 - Create a helper function called `traverse` that:
   - If vertex is not in the graph, return `null`
-  - If vertex has not been visited
-    - Add vertex to `visited`
-    - Add vertex to `result`
-    - For each of the adjacent vertices:
-      - If they have not been visited recursively call `traverse`
-- Return `result`
+  - Adds vertex to `path`
+  - Adds vertex to `visited`
+  - For each of the adjacent vertices:
+    - If they have not been visited recursively call `traverse`
+- Return `path`
 
 #### Code
 
 ```javascript
-  dftRecursive(start) {
-    const result = [];
+  dfsRecursive(start) {
+    const path = [];
     const visited = {};
+    const adjacencyList = this.adjacencyList;
 
-    const traverse = (vertex) => {
+    (function traverse(vertex) {
       if (!vertex) return null;
-      if (!visited[vertex]) {
-        visited[vertex] = true;
-        result.push(vertex);
-        this.adjacencyList[vertex].forEach(adjacent => {
-          if (!visited[adjacent]) {
-            traverse(adjacent);
-          }
-        })
-      }
-    }
+      visited[vertex] = true;
+      path.push(vertex);
 
-    traverse(start);
-    return result;
+      adjacencyList[vertex].forEach(adjacent => {
+        if (!visited[adjacent]) {
+          return traverse(adjacent);
+        }
+      });
+    })(start);
+    return path;
   }
 ```
 
